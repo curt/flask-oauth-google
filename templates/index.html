@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block heading %}Index{% endblock %}
+{% block content %}
+{% if data %}
+<p><strong><em>Signed in.</em></strong></p>
+<!--{{ data }}-->
+{% if data %}
+<table>
+{% if data['id'] %}
+    <tr>
+        <td><strong>ID</strong></td>
+        <td>{{ data['id'] }}</td>
+    </tr>
+{% endif %}
+{% if data['email'] %}
+    <tr>
+        <td><strong>E-mail</strong></td>
+        <td>{{ data['email'] }}</td>
+    </tr>
+{% endif %}
+{% if data['picture'] %}
+    <tr>
+        <td><strong>Picture</strong></td>
+        <td><img src="{{ data['picture'] }}?sz=64"/></td>
+    </tr>
+{% endif %}
+</table>
+{% endif %}
+<p><a href="{{ url_for('signout') }}">Sign out</a></p>
+{% else %}
+<p><strong><em>Not signed in.</em></strong></p>
+<p><a href="{{ url_for('signin') }}">Sign in with Google</a></p>
+{% endif %}
+{% endblock %}

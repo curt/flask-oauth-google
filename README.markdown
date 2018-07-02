@@ -1,1 +1,3 @@
-# flask-oauth-google
+# Sample Flask Application
+
+## Google OAuth, Session Persistence
